@@ -1,0 +1,107 @@
+body{
+    box-sizing: border-box;
+    background: silver;
+    margin: 0;
+    padding: 0;
+}
+.light_box{
+    position: fixed;
+    top:0;
+    left:0;
+    width:100%;
+    height: 100%;
+    background: rgba(0, 0, 0, 0.705);
+    z-index: 999;
+    justify-content: center;
+    align-items: center;
+    display: none;
+  }
+  
+  .light_box .inside_box{
+    background: rgba(255, 255, 255, 0.6);
+    padding:8px;
+    max-width: 50%;
+    text-align: center;
+    box-sizing: border-box;
+    border-radius: 16px;
+  }
+  
+  .light_box .inside_box img{
+    width:98%;
+    box-sizing: border-box;
+    background-image: cover;
+  }
+  .light_box button{
+    background-color: #0b0f0b91;
+    border: none;
+    color: rgb(241, 231, 231);
+    padding: 8px 16px;
+    border-radius: 20px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 16px;
+  }
+.container-fluid{
+    max-width: 100%;
+    display: grid;
+    grid-auto-flow: dense;
+    grid-template: "1fr 1fr 1fr 1fr 1fr" 33.33vh
+                   "1fr 1fr 1fr 1fr 1fr" 33.33vh
+                   "1fr 1fr 1fr 1fr 1fr" 33.33vh;             
+}
+.container-fluid .box{
+    position: relative;
+    background: #ccc;
+}
+.container-fluid .box img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+.container-fluid .box.a{
+    grid-row:span 2;
+}
+.container-fluid .box.b,
+.container-fluid .box.f,
+.container-fluid .box.h,
+.container-fluid .box.g
+{
+    grid-column: span 2;
+}
+main .box:hover{
+    transform: scale(1.015);
+    z-index: 999;
+}
+@media(max-width:991px){
+    .container-fluid{
+        grid-template: "1fr 1fr 1fr" 250px
+                       "1fr 1fr 1fr" 250px
+                       "1fr 1fr 1fr" 250px
+                       "1fr 1fr 1fr" 250px
+                       "1fr 1fr 1fr" 250px;             
+    }
+}
+@media(max-width:768px){
+    .container-fluid{
+        grid-template: "1fr 1fr" 250px
+                       "1fr 1fr" 250px
+                       "1fr 1fr" 250px
+                       "1fr 1fr" 250px
+                       "1fr 1fr" 250px            
+                       "1fr 1fr" 250px            
+                       "1fr 1fr" 250px;             
+    }
+    .container-fluid .box.h{
+        grid-column: span 1;
+    }
+    .container-fluid{
+        margin-top: 62px !important; 
+    }
+    .light_box .inside_box{
+        max-width: 85%;
+    }
+}
